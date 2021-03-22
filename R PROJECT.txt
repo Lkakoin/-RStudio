@@ -1,0 +1,112 @@
+#Q1(E)
+#SOLVE SIMULTANEOUS EQUATION
+A<- matrix(c(1,-3,1,2,2,1,-1,-4,1),3,3)
+B<- c(7,-3,0)
+solve(A,B)
+#ANSWER
+#P=5.666667, Q= -4.222222 , R=-4.222222
+
+#Q1(F)
+#(i)Creating matrix C using matrix()function
+C<- matrix(c(1,5,9,2,6,10,3,7,11,4,8,12),3,4)
+C
+
+#(ii)cbind function
+B1<- c(1,5,9)
+B2 <- c(2,6,10)
+B3<- c(3,7,11)
+b4<- c(4,8,12)
+C1 <- cbind(B1,B2,B3,b4)
+C1
+
+
+
+#(iii)rbind function
+E1<- c(1,2,3,4)
+E2 <- c(5,6,7,8)
+E3<- c(9,10,11,12)
+
+C2 <- rbind(E1,E2,E3)
+C2
+
+#(iv)matrix D
+E1<- c(1,2,3,4)
+E2 <- c(5,6,7,8)
+E3<- c(9,10,11,12)
+E4 <- c(13,14,15,16)
+D <- rbind(E1,E2,E3,E4)
+D
+
+
+#(V)(a)The 3rd row
+C
+C[3,]
+
+#(b)element 7
+C[2,3]
+
+#(c) 2 by 2 matrix of the bottom right#
+C[2:3,3:4]
+
+#(d)elements smaller than 7
+C[C<7]
+
+
+#(Q1)G CREATING A VECTOR
+#(i)Using c function
+v<-c(21:30)
+v
+
+#(ii)using :
+v1<-(21:30) 
+
+#(iii) using seq function
+v2 <- seq(21,30)
+v2
+
+
+
+#QUESTION 5
+#i)SUMMARY STATISTICS
+summary(DATA_R$BILL_AMT1)
+summary(DATA_R$BILL_AMT2)
+summary(DATA_R$BILL_AMT3)
+
+#Histogram
+hist(DATA_R$BILL_AMT1,col = c("red","black"))
+hist(DATA_R$BILL_AMT2,col = c("red","black"))
+hist(DATA_R$BILL_AMT3,col = c("red","black"))
+
+#ii)Conversion to factors
+DATA_R$SEX
+class(DATA_R$SEX)
+DATA_R$SEX <- C("1","2","1","2")
+
+
+
+
+
+
+
+
+
+
+
+
+#iii)Scatterplot matrix
+scatterplot(DATA_R$PAY_0~DATA_R$SEX,DATA_R$AGE,DATA_R$Default, span=0.6, lwd=3, id.n=4, data=DATA_R)
+
+#iv)Regression model
+regression<- lm(DATA_R$Default~DATA_R$AGE+DATA_R$SEX+DATA_R$PAY_0)
+summary(regression)
+#coefficients
+#y= 0.209122+0.001125(AGE)-0.016102(SEX)+0.119918(PAY_O)
+
+
+
+#V)Evaluate performance of the model
+summary(regression)
+
+
+#vi)Addittion of nonlinear relationships
+reg2<- lm(DATA_R$Default~DATA_R$PAY_AMT5+DATA_R$PAY_AMT6+DATA_R$SEX+DATA_R$PAY_0+DATA_R$AGE)
